@@ -4,7 +4,6 @@ import Content from './Content';
 import data from './data.json';
 
 const App = () => {
-  console.log(data);
   return (
     <div className="app">
       <header className="header"></header>

@@ -1,11 +1,17 @@
+/* common styles */
 li {
     list-style: none;
+}
+
+li a {
+    text-decoration: none;
 }
 
 .d-flex {
     display: flex;
 }
 
+/* container styles */
 .container {
     width: 80vw;
     margin: 30px auto;
@@ -21,6 +27,7 @@ li {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
+/* content left styles */
 .logo {
     color: orangered;
     transform: rotateZ(270deg);
@@ -28,7 +35,13 @@ li {
 
 .content-left h4 {
     margin-bottom: 8px;
-    color: #63BABA;
+    color: #46b4b4;
+}
+
+.content-left h3:hover {
+    cursor: pointer;
+    color: #46b4b4;
+    transition: all 0.3s;
 }
 
 .content-left ul {
@@ -38,4 +51,28 @@ li {
 
 .content-left ul li {
     margin: 0 10px;
+}
+
+.content-left ul li a {
+    color: gray;
+    font-size: 14px;
+}
+
+/* content right styles */
+.content-right li {
+    margin: 0 8px;
+}
+
+.content-right li a {
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #46b4b4;
+    background-color: hsl(180, 31%, 95%);
+    transition: all 0.3s;
+}
+
+.content-right li a:hover {
+    color: white;
+    background-color: #5BA4A4;
 }
