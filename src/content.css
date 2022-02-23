@@ -3,10 +3,6 @@ li {
     list-style: none;
 }
 
-li a {
-    text-decoration: none;
-}
-
 .d-flex {
     display: flex;
 }
@@ -29,8 +25,7 @@ li a {
 
 /* content left styles */
 .logo {
-    color: orangered;
-    transform: rotateZ(270deg);
+    margin-right: 15px;
 }
 
 .content-left h4 {
@@ -45,15 +40,12 @@ li a {
 }
 
 .content-left ul {
-    margin-left: -12px;
+    margin-left: -11px;
     margin-top: 8px;
 }
 
 .content-left ul li {
     margin: 0 10px;
-}
-
-.content-left ul li a {
     color: gray;
     font-size: 14px;
 }
@@ -61,18 +53,16 @@ li a {
 /* content right styles */
 .content-right li {
     margin: 0 8px;
-}
-
-.content-right li a {
     padding: 7px;
     border-radius: 5px;
     font-size: 12px;
     color: #46b4b4;
     background-color: hsl(180, 31%, 95%);
+    cursor: pointer;
     transition: all 0.3s;
 }
 
-.content-right li a:hover {
+.content-right li:hover {
     color: white;
     background-color: #5BA4A4;
 }

@@ -2,30 +2,31 @@ import React from 'react';
 import './content.css'
 
 const Content = (props) => {
+    console.log(props);
     const { company, contract, newPro, featured, languages: [topic1, topic2, topic3], level, location, position, postedAt, role, logo } = props.info;
 
     return (
         <div className="container">
             <div className="content-wrapper d-flex">
                 <div className="content-left d-flex">
-                    <h1 className="logo">Logo</h1>
+                    <img className="logo" src={logo} alt={company} />
                     <div>
                         <h4>{company}</h4>
                         <h3>{position}</h3>
                         <ul className="d-flex">
-                            <li><a href="#">{contract}</a></li>
-                            <li><a href="#">{postedAt}</a></li>
-                            <li><a href="#">{location}</a></li>
+                            <li>{contract}</li>
+                            &#183;<li>{postedAt}</li>
+                            &#183;<li>{location}</li>
                         </ul>
                     </div>
                 </div>
 
                 <ul className="content-right d-flex">
-                    <li><a href="#">{role}</a></li>
-                    <li><a href="#">{level}</a></li>
-                    <li><a href="#">{topic1}</a></li>
-                    <li><a href="#">{topic2}</a></li>
-                    <li><a href="#">{topic3}</a></li>
+                    <li>{role}</li>
+                    <li>{level}</li>
+                    <li>{topic1}</li>
+                    <li>{topic2}</li>
+                    <li>{topic3}</li>
                 </ul>
             </div>
         </div>
