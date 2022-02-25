@@ -1,87 +1,69 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
-import Content from './Content';
-import jobLists from './data.json';
+import JobList from './components/JobList';
+import jobsData from './data.json';
 
-const App = () => {
+function App() {
 
-  const [listings, setListings] = useState([]);
-  const [tags, setTags] = useState([]);
+  const [jobLists, setJobLists] = useState([]);
+  const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setListings(jobLists);
-    }, 1000);
+    setJobLists(jobsData);
   }, []);
 
-  const handleTag = tag => {
-
-    console.log('tag', tag);
-
-    if (tags.includes(tag)) {
-      return true;
+  const handleFeatures = feature => {
+    if (features.indexOf(feature) === -1) {
+      setFeatures([...features, feature]);
     }
-
-    setTags([...tags, tag]);
   };
 
-  const filteredJobs = listings.filter(({ level, role, languages, tools }) => {
-
-    const tagItems = [level, role, ...languages, ...tools];
-
-    console.log("tagItems", tagItems);
-
-    if (tags.length === 0) {
+  const filteredJobs = jobLists.filter(({ level, role, languages, tools }) => {
+    const jobItems = [level, role, ...languages, ...tools];
+    if (features.length === 0) {
       return true;
     }
-
-    console.log('inside condition', tagItems.some(tag => tags.includes(tag)));
-
-    return tagItems.some(tag => tags.includes(tag));
+    return jobItems.some(jobItem => features.includes(jobItem));
   });
 
-  console.log('tags', tags);
-
-  console.log('filteredJobs', filteredJobs);
-
-  const handleRemoveTag = removeTag => {
-    const remainingTags = tags.filter(tag => tag !== removeTag);
-
-    console.log('Remove Tag', remainingTags);
-
-    setTags(remainingTags);
-  };
+  const handleRemoveJob = removedJob => {
+    const remainingJobs = features.filter(feature => feature !== removedJob);
+    setFeatures(remainingJobs);
+  }
 
   return (
     <div className="app">
-      <header className="header"></header>
+      <header className="header" />
 
-      {/* remove tag & all tag */}
-      {tags.length > 0 && (
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div>
+      <div className="jobList">
+        {
+          features.length > 0 &&
+          <div className="container selected-job d-flex">
+            <ul className="d-flex">
               {
-                tags.length > 0 && tags.map((tag, index) =>
-                  <span
-                    key={index}
-                    onClick={() => handleRemoveTag(tag)}
-                  >{tag}</span>)
+                features.map((feature, index) => <li
+                  key={index}
+                >{feature}
+                  <span className="remove-jobBtn"
+                    onClick={() => handleRemoveJob(feature)}
+                  >&times;</span></li>)
               }
-            </div>
-            <button onClick={() => setTags([])}>Clear</button>
+            </ul>
+            <button className="remove-allBtn" onClick={() => setFeatures([])}>Clear</button>
           </div>
-        </div>
-      )}
+        }
 
-      {/* content */}
-      <div className="content">
-        {listings.length === 0 ? <h3 style={{textAlign: 'center'}}>Loading...</h3> : filteredJobs.map(job => <Content
-          key={job.id}
-          job={job}
-          handleTag={handleTag}
-        />)}
+        <div>
+          {
+            filteredJobs.map(job => <JobList
+              key={job.id}
+              job={job}
+              handleFeatures={handleFeatures}
+            />)
+          }
+        </div>
       </div>
+
     </div>
   );
 }

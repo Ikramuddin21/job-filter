@@ -1,0 +1,63 @@
+/* jobList left styles */
+.logo {
+    margin-right: 10px;
+}
+
+.jobList-left h4 {
+    color: hsl(180, 29%, 50%);
+}
+
+.newBtn, .featuredBtn {
+    color: hsla(0, 0%, 100%, 0.952);
+    margin-left: 15px;
+    padding: 8px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.newBtn {
+    background-color: hsl(180, 29%, 50%);
+}
+
+.featuredBtn {
+    background-color: black;
+}
+
+.jobList-left h3 {
+    margin-top: 0;
+}
+
+.jobList-left h3:hover {
+    color: hsl(180, 29%, 50%);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.jobList-left ul {
+    padding: 0;
+}
+
+.jobList-left ul li {
+    margin-right: 20px;
+    color: gray;
+}
+
+.entity-code {
+    margin-right: 10px;
+}
+
+/* jobList right styles */
+.jobList-right li {
+    margin-right: 20px;
+    padding: 10px 15px;
+    color: hsl(180, 29%, 50%);
+    background-color: hsl(180, 52%, 96%);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.jobList-right li:hover {
+    color: white;
+    background-color: hsl(180, 29%, 50%);
+}

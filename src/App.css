@@ -1,22 +1,76 @@
+/* common styles start */
+.container {
+  width: 80vw;
+  margin: 25px auto;
+  padding: 20px 30px;
+  border-radius: 5px;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+li {
+  list-style: none;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+/* common styles end */
+
 .header {
-  background-image: url('./images/bg-header-desktop.svg');
+  background-image: url('../public/images/bg-header-desktop.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
   background-color: hsl(180, 29%, 50%);
+  background-position: bottom;
   height: 160px;
 }
 
-.content {
+.jobList {
   background-color: hsl(180, 52%, 96%);
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.selected-job {
+  position: relative;
+  top: -100px;
+}
+
+.selected-job li {
+  margin-right: 20px;
+  padding: 10px 15px;
+  color: hsl(180, 29%, 50%);
+  background-color: hsl(180, 52%, 96%);
+  border-radius: 5px;
+}
+
+.remove-jobBtn {
+  padding: 10px;
+  position: relative;
+  left: 15px;
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: hsl(180, 29%, 50%);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.remove-jobBtn:hover {
+  background-color: black;
+}
+
+.remove-allBtn {
+  border: none;
+  background: none;
+  color: hsl(180, 29%, 50%);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.remove-allBtn:hover {
+  text-decoration: underline;
 }
