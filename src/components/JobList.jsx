@@ -24,7 +24,7 @@ const JobList = (props) => {
     };
 
     return (
-        <div className="container d-flex">
+        <div className={ featured ? "left-border container d-flex" : "container d-flex" }>
             <div className="jobList-left d-flex">
                 <img src={logo} className="logo" alt={company} />
                 <div>
